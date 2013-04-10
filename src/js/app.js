@@ -1,21 +1,27 @@
-define(['backbone', 'router/router', 'view/viewApp'], 
-    function(Backbone, Router, ViewApp) {
+define(['backbone', 'router/router', 'view/viewFactory'], 
+    function(Backbone, Router, viewFactory) {
 
     'use strict';
 
     var app = {
+        el: $('#app'),
+
         start: function() {
             console.log('==== app start ====');
 
             this.router = new Router();
-            this.view = new ViewApp({
-                el: $('#app')
-            })
+
+            this.headerView = viewFactory.getView({
+                el: this.el.find('.headerCtnr'),
+                viewId: 'header'
+            });
 
             var self = this;
-
             this.router.on('route:home', function() {
-                self.view.setContentView('home');
+                self.contentView = viewFactory.getView({
+                    el: self.el.find('.contentCtnr'),
+                    viewId: 'home'
+                });
             });
 
             Backbone.history.start();
