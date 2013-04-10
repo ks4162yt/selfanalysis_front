@@ -4,19 +4,28 @@ define(['view/viewHeader', 'view/viewHome'],
     'use strict';
 
     var viewFactory = {
+        cache: {},
+
         getView: function(args) {
             // TODO: リファクタする
             var rootEl = args.el;
             var viewId = args.viewId;
+
+            if (viewId in this.cache) {
+                return this.cache[viewId];
+            }
+
             if (viewId === 'home') {
-                return new ViewHome({
+                this.cache[viewId] = new ViewHome({
                     el: rootEl
                 });
             } else if (viewId === 'header') {
-                return new ViewHeader({
+                this.cache[viewId] = new ViewHeader({
                     el: rootEl
                 });
             }
+
+            return this.cache[viewId];
         }
     };
 
