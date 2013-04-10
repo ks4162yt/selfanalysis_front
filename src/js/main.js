@@ -3,6 +3,10 @@ requirejs.config({
     baseUrl: './js/',
 
     paths: {
+        // Alias
+        template: '../template',
+
+        // Libraries
         jquery: 'libs/jquery/jquery-1.9.1',
         underscore: 'libs/underscore/underscore-1.4.4',
         backbone: 'libs/backbone/backbone-1.0.0',

@@ -1,9 +1,12 @@
-define(['backbone'], function(Backbone) {
+define(['backbone', 'view/viewHome'],
+    function(Backbone, ViewHome) {
 
     'use strict';
 
     var Router = Backbone.Router.extend({
-        routes: {}
+        routes: {
+            '': 'home'
+        }
     });
 
     return Router;

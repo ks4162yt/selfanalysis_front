@@ -1,0 +1,12 @@
+.headerCtnr {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #888888;
+}
+
+.contentCtnr {
+    margin-top: 50px;
+    width: 100%;
+}
